@@ -1,0 +1,15 @@
+01. output.sh
+02. read.sh
+03. conditionales_2.sh
+04. conditionales.sh
+05. logical_operator.sh
+06. case.sh
+07. loop_while.sh
+08. loop_until.sh
+09. loop_for.sh
+09. loop_for2.sh
+10. continue_break.sh
+11. arguments.sh
+12. output_error.sh
+error.txt
+file.txt
