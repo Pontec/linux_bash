@@ -1,0 +1,703 @@
+1. En la carpeta /home/nombreusuario colocar un archivo en vi con lo siguiente
+
+Hace poco, las noticias sobre una investigación de Facebook en torno al aprendizaje automático han generado pánico en diversos lugares y muchos creen que la Skynet de Terminator acaba de ser creada. “Los ingenieros de Facebook entran en pánico y desconectan una AI (inteligencia artificial) debido a que los ‘bots’ desarrollaron su propio lenguaje” escribió un medio. “Facebook apaga una AI luego de que inventase un lenguaje propio y horripilante” agregó otro. “¿Hemos creado a Frankenstein?” se preguntaba otro. Un tabloide británico citó a un profesor en Robótica que decía que el incidente mostraba “los peligros de aferrarse a la inteligencia artificial” y “podría ser letal” que una tecnología como esta sea introducida en robots militares.
+
+1. Utilizando el comando respectivo de vi, buscar las palabras Facebook, Skynet, bots y robótica
+
+```bash
+//Abrir el archivo y luego presionar esc:
+
+/Facebook
+/Skynet
+/bots
+/Robótica
+```
+
+1. Utilizando el comando respectivo, contar la cantidad de líneas que debe tener el archivo en vi guardando en el archivo conteo.tx
+
+```bash
+wc -l /home/nombreusuario/archivo.txt > /home/nombreusuario/conteo.txt(archivo)
+
+```
+
+1. Utilizando el comando respectivo de vi, eliminar la primera y la última línea.
+
+```bash
+//Abrir el archivo y luego presionar esc:
+
+:1d
+:$d
+```
+
+1. Utilizando comandos de vi, eliminar las siguientes palabras “una”, “luego”, “diversos”, “un”
+“propio”
+
+```bash
+//Abrir el archivo y luego presionar esc:
+
+:%s/una//g
+:%s/luego//g
+:%s/diversos//g
+:%s/un//g
+:%s/propio//g
+```
+
+1. Usando comandos de vi
+Reemplazar la palabra Facebook por la palabra red_social
+Reemplazar la palabra tabloide por la palabra periódico
+Reemplazar la palabra Skynet por palabra red_futurista
+
+```bash
+//Abrir el archivo y luego presionar esc:
+
+:%s/Facebook/red_social/g
+:%s/tabloide/periódico/g
+:%s/Skynet/red_futurista/g
+```
+
+1. Copiar la última línea 4 veces en el archivo usando comandos de vi
+
+```bash
+1. avega a la última línea presionando G.
+2. Copia la última línea con yy.
+3. Pega la línea copiada 4 veces con 4p.
+```
+
+1. Usando comandos de vi, eliminar las 5 primeras líneas del archivo
+
+```bash
+//Abrir el archivo y luego presionar esc:
+
+:1,5d
+```
+
+1. Guardar la versión del Linux en el siguiente archivo versionlinux.txt. Colocar el comando
+respectivo
+
+```bash
+uname -a > /home/nombreusuario/versionlinux.txt
+```
+
+10. **Crear la carpeta PRACTICAFINAL. Colocar el comando respectivo** 
+
+```bash
+mkdir PRACTICAFINAL
+```
+
+1. **Realizar la siguiente estructura de carpetas.** 
+
+ADMINISTRACION
+TI
+PRODUCTO
+CONTABILIDAD
+RECURSOSHUMANOS
+
+VENTAS
+ARMERIA
+LOGISTICA
+SISTEMAS
+PUBLICO
+
+```bash
+mkdir ADMINISTRACION
+mkdir PRODUCTO
+mkdir CONTABILIDAD
+mkdir TI
+mkdir RECURSOSHUMANOS
+mkdir VENTAS
+mkdir ARMERIA
+mkdir LOGISTICA
+mkdir SISTEMAS
+mkdir PUBLICO
+```
+
+1. **Se debe eliminar las carpetas SISTEMAS y ARMERIA. Colocar los comandos respectivos**
+
+```bash
+rm -r SISTEMAS
+rm -r ARMERIA
+```
+
+1. **Se debe mover las siguientes carpetas. Colocar los comandos respectivos.**
+- PRODUCTO debe estar en el interior de la carpeta VENTAS
+
+```bash
+mv PRODUCTO VENTAS
+```
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/613b6cff-693d-4e13-974c-282c44c0a6e6/f7faac88-e91a-4418-bd53-3c90f4c5f323/Untitled.png)
+
+ojo si vez este grafico el comando es:tree
+
+- PUBLICO debe estar en el interior de la carpeta TI
+
+```bash
+mv PUBLICO TI
+```
+
+1. **En el interior de cada carpeta colocaremos un archivo de texto para 5 áreas, con los nombres de los integrantes de cada Área. Colocar los comandos respectivos.**
+
+Para el área ADMINISTRACION será el archivo integrantes1.txt con los nombres:
+Aurora
+Arturo
+Alberto
+Mildrent
+Mariano
+
+```bash
+cd ADMINISTRACION 
+cat > integrantes1.txt
+Aurora
+Arturo
+Alberto
+Mildrent
+Mariano
+volvemos al principal practicafinal
+
+cd TI
+cat > integrantes2.txt
+oscar
+henry
+mario
+gilmar
+gonzalo
+volvemos al principal practicafinal
+
+cd CONTABILIDAD
+cat > integrantes3.txt
+marley
+johanna
+ingrid
+estefania
+mirtha
+volvemos al principal practicafinal
+
+cd RECURSOSHUMANOS
+cat > integrantes4.txt
+angela
+mariana
+claudia
+isabel
+alejandra
+volvemos al principal practicafinal
+
+cd VENTAS
+cat > integrantes5.txt
+julio
+eduardo
+humberto
+astrid
+dayana
+volvemos al principal practicafinal
+```
+
+16. **Copiar los 5 archivos a la carpeta /PRACTICAFINAL/TI/PUBLICO. Colocar los comandos respectivos.**
+
+```bash
+cp integrantes1.txt /home/evelin/PRACTICAFINAL/TI/PUBLICO
+```
+
+**17.Comprimir con gzip los siguientes archivos. Colocar los comandos respectivos**
+
+integrantes1.txt y integrantes2.txt
+
+```bash
+gzip integrantes1.txt
+gzip integrantes2.txt
+```
+
+**Comprimir con zip los siguientes archivos. Colocar los comandos respectivos.**
+Integrantes3.txt
+Integrantes4.txt
+
+```bash
+zip archivos_comprimidos.zip Integrantes3.txt Integrantes4.txt
+```
+
+Comprimir con rar los siguientes archivos. Colocar los comandos respectivos.
+Integrantes5.txt
+
+```bash
+rar a Integrantes5.rar Integrantes5.txt
+```
+
+**18.Comprimir las siguientes carpetas. Colocar los comandos respectivos**
+Comprimir la carpeta CONTABILIDAD
+Comprimir la carpeta RECURSOSHUMANOS
+
+```bash
+rar a CONTABILIDAD.rar CONTABILIDAD
+rar a RECURSOSHUMANOS.rar RECURSOSHUMANOS
+```
+
+**19.Concatenar y guardar en el archivo personal.txt los siguientes archivos:** integrantes3.txt,
+integrantes4.txt e integrantes5.txt. Colocar el comando respectivo
+
+```bash
+cat integrantes3.txt > personal.txt
+cat integrantes4.txt > personal.txt
+cat integrantes5.txt > personal.txt
+```
+
+1. **Mostrar los integrantes de personal.txt en forma descendentes (de Z a A). Colocar el comando respectivo.**
+
+```bash
+sort -r personal.txt
+```
+
+1. Se pide hacer un script que permita la creación, modificación y eliminación de usuarios
+
+```bash
+#!/bin/bash
+
+# Función para mostrar el menú principal
+show_menu() {
+    echo " Gestión de Usuarios "
+    echo "----------------------------"
+    echo "1. Crear usuario"
+    echo "2. Modificar usuario"
+    echo "3. Eliminar usuario"
+    echo "4. Salir"
+    echo "----------------------------"
+    read -p "Elige una opción [1-4]: " choice
+}
+
+# Función para crear un usuario
+create_user() {
+    read -p "Nombre de usuario: " username
+    read -p "Contraseña: " password
+    sudo useradd -m "$username"
+    echo "$username:$password" | sudo chpasswd
+    echo "Usuario $username creado."
+}
+
+# Función para modificar un usuario
+modify_user() {
+    read -p "Nombre de usuario a modificar: " username
+    read -p "Nueva contraseña: " password
+    echo "$username:$password" | sudo chpasswd
+    echo "Contraseña de $username actualizada."
+}
+
+# Función para eliminar un usuario
+delete_user() {
+    read -p "Nombre de usuario a eliminar: " username
+    sudo userdel -r "$username"
+    echo "Usuario $username eliminado."
+}
+
+# Bucle principal
+while true; do
+    show_menu
+    case $choice in
+        1)
+            create_user
+            ;;
+        2)
+            modify_user
+            ;;
+        3)
+            delete_user
+            ;;
+        4)
+            echo "Saliendo..."
+            exit 0
+            ;;
+        *)
+            echo "Opción no válida."
+            ;;
+    esac
+done
+```
+
+1. Se pide hacer un script que permita crear carpetas, crear archivos, luego mover los archivos en el interior de una de las carpetas creadas
+
+```bash
+#!/bin/bash
+
+# Función para mostrar el menú principal
+mostrar_menu() {
+    echo " Gestión de Archivos y Carpetas "
+    echo "----------------------------"
+    echo "1. Crear carpeta"
+    echo "2. Crear archivo"
+    echo "3. Mover archivo a carpeta"
+    echo "4. Salir"
+    echo "----------------------------"
+    read -p "Elige una opción [1-4]: " opcion
+}
+
+# Función para crear una carpeta
+crear_carpeta() {
+    read -p "Nombre de la carpeta: " nombre_carpeta
+    mkdir -p "$nombre_carpeta"
+    echo "Carpeta '$nombre_carpeta' creada."
+}
+
+# Función para crear un archivo
+crear_archivo() {
+    read -p "Nombre del archivo: " nombre_archivo
+    touch "$nombre_archivo"
+    echo "Archivo '$nombre_archivo' creado."
+}
+
+# Función para mover un archivo a una carpeta
+mover_archivo() {
+    read -p "Nombre del archivo a mover: " nombre_archivo
+    read -p "Nombre de la carpeta destino: " nombre_carpeta
+    if [ -e "$nombre_archivo" ] && [ -d "$nombre_carpeta" ]; then
+        mv "$nombre_archivo" "$nombre_carpeta"
+        echo "Archivo '$nombre_archivo' movido a '$nombre_carpeta'."
+    else
+        echo "El archivo o la carpeta no existen."
+    fi
+}
+
+# Bucle principal
+while true; do
+    mostrar_menu
+    case $opcion in
+        1)
+            crear_carpeta
+            ;;
+        2)
+            crear_archivo
+            ;;
+        3)
+            mover_archivo
+            ;;
+        4)
+            echo "Saliendo..."
+            exit 0
+            ;;
+        *)
+            echo "Opción no válida."
+            ;;
+    esac
+done
+
+```
+
+1. Se pide hacer un script que permita crear archivos, luego que se permite empaquetar y luego comprimir los archivos con uno de los 4 comandos de compresión.
+
+```bash
+#!/bin/bash
+
+# Función para mostrar el menú principal
+mostrar_menu() {
+    echo "----------------------------"
+    echo " Gestión de Archivos "
+    echo "----------------------------"
+    echo "1. Crear archivo"
+    echo "2. Empaquetar y comprimir archivos"
+    echo "3. Salir"
+    echo "----------------------------"
+    read -p "Elige una opción [1-3]: " opcion
+}
+
+# Función para crear un archivo
+crear_archivo() {
+    read -p "Nombre del archivo: " nombre_archivo
+    touch "$nombre_archivo"
+    echo "Archivo '$nombre_archivo' creado."
+}
+
+# Función para empaquetar y comprimir archivos
+empaquetar_comprimir() {
+    read -p "Nombre del archivo tar (sin extensión): " nombre_tar
+    read -p "Lista de archivos a empaquetar (separados por espacio): " archivos
+    tar -cvf "$nombre_tar.tar" $archivos
+    echo "Archivos empaquetados en '$nombre_tar.tar'."
+
+    echo "Elige un método de compresión:"
+    echo "1. gzip"
+    echo "2. bzip2"
+    echo "3. xz"
+    echo "4. zip"
+    read -p "Elige una opción [1-4]: " compresion
+
+    case $compresion in
+        1)
+            gzip "$nombre_tar.tar"
+            echo "Archivo comprimido con gzip: '$nombre_tar.tar.gz'."
+            ;;
+        2)
+            bzip2 "$nombre_tar.tar"
+            echo "Archivo comprimido con bzip2: '$nombre_tar.tar.bz2'."
+            ;;
+        3)
+            xz "$nombre_tar.tar"
+            echo "Archivo comprimido con xz: '$nombre_tar.tar.xz'."
+            ;;
+        4)
+            zip "$nombre_tar.zip" "$nombre_tar.tar"
+            rm "$nombre_tar.tar"
+            echo "Archivo comprimido con zip: '$nombre_tar.zip'."
+            ;;
+        *)
+            echo "Opción no válida."
+            ;;
+    esac
+}
+
+# Bucle principal
+while true; do
+    mostrar_menu
+    case $opcion in
+        1)
+            crear_archivo
+            ;;
+        2)
+            empaquetar_comprimir
+            ;;
+        3)
+            echo "Saliendo..."
+            exit 0
+            ;;
+        *)
+            echo "Opción no válida."
+            ;;
+    esac
+done
+
+```
+
+1. Se pide hacer un script que permita cambiar la dirección ip del pc, y elegir el tipo de dirección entre los 3 tipos de clases de direcciones A, B y C
+
+```bash
+#!/bin/bash
+
+# Solicitar la nueva dirección IP y la clase
+read -p "Introduce la nueva dirección IP (ej. 192.168.1.100): " ip
+read -p "Selecciona la clase de IP (A, B o C): " clase
+
+# Determinar la máscara de subred basada en la clase
+case $clase in
+    A)
+        mascara="255.0.0.0"
+        ;;
+    B)
+        mascara="255.255.0.0"
+        ;;
+    C)
+        mascara="255.255.255.0"
+        ;;
+    *)
+        echo "Clase no válida. Usa A, B o C."
+        exit 1
+        ;;
+esac
+
+# Cambiar la dirección IP
+interface=$(ip route | grep default | awk '{print $5}')
+
+sudo ip addr flush dev $interface
+sudo ip addr add $ip/$mascara dev $interface
+sudo ip link set $interface up
+
+echo "Dirección IP cambiada a $ip con máscara $mascara en la interfaz $interface."
+
+```
+
+1. Hacer un script que permita realizar el algoritmo de planificación FCFS, si se cuenta con la siguiente tabla
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/613b6cff-693d-4e13-974c-282c44c0a6e6/448af697-a679-4d1f-b7a8-9170bc4d40f7/Untitled.png)
+
+```sql
+#!/bin/bash
+
+# Definir los procesos con sus tiempos de llegada y ejecución
+procesos=("A" "B" "C" "D" "E" "F" "G" "H")
+llegada=(0 2 5 8 10 12 13 15)
+ejecucion=(4 3 2 4 2 3 5 3)
+
+# Imprimir el orden de ejecución
+echo "Orden de ejecución (FCFS):"
+for i in "${!procesos[@]}"; do
+    echo "Proceso: ${procesos[$i]}, Llegada: ${llegada[$i]}, Ejecución: ${ejecucion[$i]}"
+done
+
+```
+
+1. Hacer un script que permita realizar el algoritmo de planificación SRT., si se cuenta con la siguiente tabla
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/613b6cff-693d-4e13-974c-282c44c0a6e6/be528651-69b7-4810-bd29-92603dd8ded3/Untitled.png)
+
+```sql
+#!/bin/bash
+
+# Definir los procesos con sus tiempos de llegada y ejecución
+procesos=("A" "B" "C" "D" "E" "F" "G" "H")
+llegada=(0 2 5 8 10 12 13 15)
+ejecucion=(4 3 2 4 2 3 5 3)
+ejecucion_restante=("${ejecucion[@]}")
+n=${#procesos[@]}
+
+# Inicializar variables
+time=0
+completed=0
+prev=-1
+
+# Crear un bucle hasta que todos los procesos se completen
+while [ $completed -ne $n ]; do
+    min_remaining=1000
+    index=-1
+
+    for ((i=0; i<n; i++)); do
+        if [ ${llegada[$i]} -le $time ] && [ ${ejecucion_restante[$i]} -gt 0 ] && [ ${ejecucion_restante[$i]} -lt $min_remaining ]; then
+            min_remaining=${ejecucion_restante[$i]}
+            index=$i
+        fi
+    done
+
+    if [ $index -eq -1 ]; then
+        time=$((time + 1))
+        continue
+    fi
+
+    ejecucion_restante[$index]=$((ejecucion_restante[$index] - 1))
+    if [ ${ejecucion_restante[$index]} -eq 0 ]; then
+        completed=$((completed + 1))
+    fi
+
+    if [ $index -ne $prev ]; then
+        echo "Proceso: ${procesos[$index]} empieza en t=$time"
+        prev=$index
+    fi
+
+    time=$((time + 1))
+done
+
+```
+
+1. Hacer un script que permita resolver utilizando las cuatro técnicas de asignación de memoria
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/613b6cff-693d-4e13-974c-282c44c0a6e6/11702dfe-a19c-465e-a6dc-91dfffdd2762/Untitled.png)
+
+```sql
+#!/bin/bash
+
+# Definir las áreas libres de memoria y los requerimientos de los procesos
+areas_libres=(25 17 42 30 27 18 21 32 25 19 51 17)
+procesos=("P1" "P2" "P3" "P4" "P5" "P6")
+requerimientos=(25 19 22 5 15 12)
+
+# Función para asignación de memoria
+asignar_memoria() {
+    local asignacion=("$@")
+    for i in "${!procesos[@]}"; do
+        for j in "${!areas_libres[@]}"; do
+            if [ ${areas_libres[$j]} -ge ${requerimientos[$i]} ]; then
+                asignacion[$i]=$j
+                areas_libres[$j]=$((areas_libres[$j] - requerimientos[$i]))
+                break
+            fi
+        done
+    done
+
+    # Imprimir la asignación
+    echo "Asignación de memoria:"
+    for i in "${!procesos[@]}"; do
+        if [ -n "${asignacion[$i]}" ]; then
+            echo "Proceso: ${procesos[$i]}, Área asignada: ${asignacion[$i]}, Tamaño: ${requerimientos[$i]} kb"
+        else
+            echo "Proceso: ${procesos[$i]} no pudo ser asignado."
+        fi
+    done
+}
+
+# Ejecutar asignación de memoria
+asignar_memoria
+
+```
+
+1. Realizar un script con la siguiente secuencia:
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/613b6cff-693d-4e13-974c-282c44c0a6e6/0fc3f787-6d38-4f2c-a2bf-5c8a7d38cf7f/Untitled.png)
+
+```sql
+#!/bin/bash
+
+# Secuencia de solicitudes
+requests=(3 14 7 23 35 25 17 19 42 28 33 5 12 15 22)
+head=16
+
+# Función para SSTF (Shortest Seek Time First)
+sstf() {
+    local requests=("$@")
+    local head=$1
+    local total_seek=0
+    local n=${#requests[@]}
+    local done=()
+
+    echo "Orden de ejecución (SSTF):"
+    while [ ${#done[@]} -lt $n ]; do
+        min_dist=1000
+        min_index=-1
+        for ((i=0; i<n; i++)); do
+            if [[ ! " ${done[@]} " =~ " ${requests[$i]} " ]]; then
+                dist=$((head - requests[$i]))
+                dist=${dist#-}  # valor absoluto
+                if [ $dist -lt $min_dist ]; then
+                    min_dist=$dist
+                    min_index=$i
+                fi
+            fi
+        done
+
+        echo "Mover cabeza de $head a ${requests[$min_index]}"
+        total_seek=$((total_seek + min_dist))
+        head=${requests[$min_index]}
+        done+=(${requests[$min_index]})
+    done
+
+    echo "Total de movimientos de cabeza: $total_seek"
+}
+
+# Función para SCAN
+scan() {
+    local requests=("$@")
+    local head=$1
+    local direction="up"
+    local total_seek=0
+
+    echo "Orden de ejecución (SCAN):"
+    while true; do
+        if [ "$direction" == "up" ]; then
+            for ((i=head; i<=max_request; i++)); do
+                if [[ " ${requests[@]} " =~ " $i " ]]; then
+                    echo "Mover cabeza de $head a $i"
+                    total_seek=$((total_seek + i - head))
+                    head=$i
+                    requests=(${requests[@]/$i})
+                fi
+            done
+            direction="down"
+        else
+            for ((i=head; i>=0; i--)); do
+                if [[ " ${requests[@]} " =~ " $i " ]]; then
+                    echo "Mover cabeza de $head a $i"
+                    total_seek=$((total_seek + head - i))
+                    head=$i
+                    requests=(${requests[@]/$i})
+                fi
+            done
+            direction="up"
+        fi
+
+        if [ ${#requests[@]} -eq 0 ]; then
+            break
+        fi
+    done
+
+    echo "Total de movimientos de cabeza: $total_seek"
+}
+
+# Ejecutar algoritmos
+echo "Algoritmo SSTF:"
+sstf "${requests[@]}"
+
+echo -e "\nAlgoritmo SCAN:"
+scan "${requests[@]}"
+
+```

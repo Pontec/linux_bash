@@ -1,0 +1,205 @@
+1. Crear los siguientes usuarios (empezar desde el UID valor 1100)
+
+| Usuario | Nombre Completo |
+| --- | --- |
+| shakira.mebarack | Shakira Mebarack |
+| teresa.presmanes  | Teresa Presmanes |
+| paulina.rubio | Paulina Rubio |
+| julieta.venegas | Julieta Venegas |
+| ariadna.sodi | Ariadna Sodi |
+| yuridia.gaxiola | Yuridia Gaxiola |
+| danna.rivera | Danna Rivera |
+| maite.perroni | Maite Perroni |
+
+Escribir los comandos requeridos para crear los usuarios:
+
+```bash
+useradd -u 1100 -c "Shakira Mebarack" shakira.mebarack
+useradd -u 1101 -c "Teresa Presmanes" teresa.presmanes
+useradd -u 1102 -c "Paulina Rubio" paulina.rubio
+useradd -u 1103 -c "Julieta Venegas" julieta.venegas
+useradd -u 1104 -c "Ariadna Sodi" ariadna.sodi
+useradd -u 1105 -c "Yuridia Gaxiola" yuridia.gaxiola
+useradd -u 1106 -c "Danna Rivera" danna.rivera
+useradd -u 1107 -c "Maite Perroni" maite.perroni
+```
+
+1. Crear los siguientes grupos (empezar desde el UID valor 2100)
+
+**Grupo**
+CANTANTES80
+CANTANTES90
+CANTANTES00
+Escribir los comandos requeridos para crear los grupos
+
+```bash
+groupadd -g 2100 CANTANTES80
+groupadd -g 2101 CANTANTES90
+groupadd -g 2102 CANTANTES00
+```
+
+1. Añadir a los siguientes grupos los usuarios:
+
+Añadir a los siguientes grupos los usuarios:
+CANTANTES80:           teresa.presmanes,paulina.rubio,ariadna.sodi
+CANTANTES90:           shakira.mebarack,julieta.venegas
+CANTANTES00:           yuridia.gaxiola,danna.rivera,maite.perroni
+Escribir los comandos requeridos para crear los grupos
+
+```bash
+usermod -aG CANTANTES80 teresa.presmanes
+usermod -aG CANTANTES80 paulina.rubio
+usermod -aG CANTANTES80 ariadna.sodi
+
+usermod -aG CANTANTES90 shakira.mebarack
+usermod -aG CANTANTES90 julieta.venegas
+
+usermod -aG CANTANTES00 yuridia.gaxiola
+usermod -aG CANTANTES00 danna.rivera
+usermod -aG CANTANTES00 maite.perroni
+```
+
+1. Se necesita modificar las siguientes cuentas
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/613b6cff-693d-4e13-974c-282c44c0a6e6/6f6ee656-5616-45b8-b960-2ee5cd1ac978/Untitled.png)
+
+```bash
+# Modificar teresa.presmanes a daniela.romo
+usermod -l daniela.romo -c "Daniela Romo" teresa.presmanes
+usermod -g CANTANTES90 daniela.romo
+
+# Modificar yuridia.gaxiola a YURIDIA
+usermod -l YURIDIA -c "YURIDIA" yuridia.gaxiola
+usermod -g CANTANTES90 YURIDIA
+
+# Modificar ariadna.sodi a thalia
+usermod -l thalia -c "Thalia" ariadna.sodi
+usermod -g CANTANTES00 thalia
+```
+
+1. Ingresar con usuaria daniela.romo Crear en /home/daniela.romo una carpeta de nombre DISCOS, ingresar a dicha carpeta y crear 4 archivos.
+
+disco1.txt
+disco2.txt
+disco3.txt
+disco4.txt
+Escribir los comandos requeridos para cada caso
+
+```bash
+# Suponiendo que ya estamos como usuario daniela.romo
+sudo su - daniela.romo
+mkdir -p /home/daniela.romo/DISCOS
+cd /home/daniela.romo/DISCOS
+touch disco1.txt disco2.txt disco3.txt disco4.txt
+```
+
+1. Cambiar los permisos de los siguientes archivos
+
+disco1.txt          -r-xrw--wx
+disco2.txt          --wx-w---x
+disco3.txt          -rwx---r-x
+disco4.txt          -r-x-w-r-x
+Escribir los comandos requeridos para cada caso
+
+```bash
+chmod 571 disco1.txt
+chmod 321 disco2.txt
+chmod 701 disco3.txt
+chmod 551 disco4.txt
+```
+
+1. Cambiar los permisos de usuario de los siguientes archivos
+
+disco1.txt        ahora el usuario dueño es maite.perroni
+disco2.txt        ahora el usuario dueño es danna.rivera
+disco3.txt        ahora el usuario dueño es shakira.mebarack
+disco4.txt        ahora el usuario dueño es yuridia.gaxiola
+Escribir los comandos requeridos para cada caso
+
+```bash
+chown maite.perroni disco1.txt
+chown danna.rivera disco2.txt
+chown shakira.mebarack disco3.txt
+chown yuridia.gaxiola disco4.txt
+```
+
+1. Cambiar los permisos de grupo los siguientes archivos
+
+disco1.txt        ahora el grupo dueño es CANTANTES80
+disco2.txt        ahora el grupo dueño es CANTANTES00
+disco3.txt        ahora el grupo dueño es CANTANTES00
+disco4.txt        ahora el grupo dueño es CANTANTES90
+Escribir los comandos requeridos para cada caso
+
+```bash
+chown :CANTANTES80 disco1.txt
+chown :CANTANTES00 disco2.txt
+chown :CANTANTES00 disco3.txt
+chown :CANTANTES90 disco4.txt
+
+```
+
+1. Realizar un script en Linux para solucionar el algoritmo de Hallar la tabla final utilizando el algoritmo de Planificación FCFS. Para lo cual se utiliza la siguiente tabla:
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/613b6cff-693d-4e13-974c-282c44c0a6e6/f136671c-8fdb-45bb-bd13-a28f21e0b3f8/Untitled.png)
+
+```bash
+#!/bin/bash
+
+# Declarar los arrays
+processes=("A" "B" "C" "D" "E")
+arrival=(0 2 5 8 10)
+burst=(4 3 2 4 3)
+n=${#processes[@]}
+
+# Variables iniciales
+start_time=0
+waiting_time=0
+turnaround_time=0
+
+echo "Proceso  Instante Llegada  Tiempo Ejecución  Tiempo Inicio  Tiempo Espera  Tiempo Retorno"
+
+# Calcular tiempos
+for (( i=0; i<$n; i++ ))
+do
+  if [ $start_time -lt ${arrival[$i]} ]; then
+    start_time=${arrival[$i]}
+  fi
+  waiting_time=$((start_time - arrival[i]))
+  turnaround_time=$((waiting_time + burst[i]))
+  echo "  ${processes[$i]}            ${arrival[$i]}               ${burst[$i]}               $start_time              $waiting_time            $turnaround_time"
+  start_time=$((start_time + burst[i]))
+done
+
+```
+
+1. Realizar un script en Linux para solucionar la asignación de memoria. Utilizando el algoritmo Primer ajuste (First Fit) Utilizando las siguientes tablas:
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/613b6cff-693d-4e13-974c-282c44c0a6e6/5fec82fe-91bb-4991-b245-a48d2f0ba25c/Untitled.png)
+
+```bash
+#!/bin/bash
+
+# Áreas libres
+free_areas=(25 17 42 30 27 18 21 32)
+# Requerimientos de memoria
+requirements=(25 19 22 5)
+n_areas=${#free_areas[@]}
+n_requirements=${#requirements[@]}
+
+echo "Proceso  Requerimiento  Partición Asignada"
+
+# Asignación de memoria usando First Fit
+for (( i=0; i<$n_requirements; i++ ))
+do
+  for (( j=0; j<$n_areas; j++ ))
+  do
+    if [ ${requirements[$i]} -le ${free_areas[$j]} ]; then
+      echo "P$((i+1))        ${requirements[$i]} KB       ${free_areas[$j]} KB"
+      free_areas[$j]=$((free_areas[$j] - requirements[$i]))
+      break
+    fi
+  done
+done
+
+```
